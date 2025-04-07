@@ -31,7 +31,8 @@ $option = $block->getData('option');
             var optionSelectElement = $('#select_<?= $escaper->escapeHtmlAttr($option->getId()); ?>');
             optionSelectElement.select2({
                 dropdownParent: $(optionSelectElement).parent(),
-                dropdownCssClass: 'product-custom-option-select2'
+                dropdownCssClass: 'product-custom-option-select2',
+                minimumResultsForSearch: Infinity
             });
             optionSelectElement.insertAfter(optionSelectElement.next());
         });
