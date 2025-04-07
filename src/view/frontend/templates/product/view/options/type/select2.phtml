@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+use Magento\Catalog\Model\Product\Option;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\TemplateEngine\Php;
+
+/**
+ * @author      Andreas Knollmann
+ * @copyright   2014-2025 Softwareentwicklung Andreas Knollmann
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ */
+
+/** @var Php $this */
+/** @var Escaper $escaper */
+/** @var Template $block */
+
+/** @var Option $option */
+$option = $block->getData('option');
+?>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'domReady',
+        'Infrangible_CatalogProductOptionSelect2/js/select2'
+    ], function($, domReady) {
+        domReady(function() {
+            var optionSelectElement = $('#select_<?= $escaper->escapeHtmlAttr($option->getId()); ?>');
+            optionSelectElement.select2({
+                dropdownParent: $(optionSelectElement).parent(),
+                dropdownCssClass: 'product-custom-option-select2'
+            });
+            optionSelectElement.insertAfter(optionSelectElement.next());
+        });
+    });
+</script>
