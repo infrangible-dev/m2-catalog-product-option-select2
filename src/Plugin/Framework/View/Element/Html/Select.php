@@ -28,6 +28,11 @@ class Select
 
         if ($option instanceof Option) {
             if ($option->getType() === 'select2') {
+                $subject->setDataUsingMethod(
+                    'name',
+                    'options[' . $option->getId() . ']'
+                );
+
                 $subject->setOptions(
                     array_merge(
                         [['value' => '', 'label' => __('-- Please Select --'), 'params' => []]],
