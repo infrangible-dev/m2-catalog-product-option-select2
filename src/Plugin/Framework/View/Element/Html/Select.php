@@ -33,12 +33,29 @@ class Select
                     'options[' . $option->getId() . ']'
                 );
 
-                $subject->setOptions(
-                    array_merge(
-                        [['value' => '', 'label' => __('-- Please Select --'), 'params' => []]],
-                        $subject->getOptions()
-                    )
-                );
+                $addSelect = true;
+
+                $isRequired = $option->getIsRequire();
+
+                $values = $option->getValues();
+
+                if ($values) {
+                    /** @var Option\Value $value */
+                    foreach ($values as $value) {
+                        if ($value->getData('preselect') && $isRequired) {
+                            $addSelect = false;
+                        }
+                    }
+                }
+
+                if ($addSelect) {
+                    $subject->setOptions(
+                        array_merge(
+                            [['value' => '', 'label' => __('-- Please Select --'), 'params' => []]],
+                            $subject->getOptions()
+                        )
+                    );
+                }
             }
         }
     }
