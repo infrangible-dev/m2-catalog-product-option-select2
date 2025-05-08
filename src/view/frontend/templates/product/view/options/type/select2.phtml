@@ -32,9 +32,17 @@ $option = $block->getData('option');
             optionSelectElement.select2({
                 dropdownParent: $(optionSelectElement).parent(),
                 dropdownCssClass: 'product-custom-option-select2',
-                minimumResultsForSearch: Infinity
+                minimumResultsForSearch: Infinity,
+                templateResult: select2ResultState
             });
             optionSelectElement.insertAfter(optionSelectElement.next());
         });
+
+        function select2ResultState(data, container) {
+            if(data.element) {
+                $(container).addClass($(data.element).attr("class"));
+            }
+            return data.text;
+        }
     });
 </script>
