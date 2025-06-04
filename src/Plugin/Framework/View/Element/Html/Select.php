@@ -28,9 +28,24 @@ class Select
 
         if ($option instanceof Option) {
             if ($option->getType() === 'select2') {
+                $name = $subject->getDataUsingMethod('name');
+
+                if ($name) {
+                    $name = preg_replace(
+                        '/\[\]$/',
+                        '',
+                        $name
+                    );
+                } else {
+                    $name = sprintf(
+                        'options[%s]',
+                        $option->getId()
+                    );
+                }
+
                 $subject->setDataUsingMethod(
                     'name',
-                    'options[' . $option->getId() . ']'
+                    $name
                 );
 
                 $addSelect = true;
