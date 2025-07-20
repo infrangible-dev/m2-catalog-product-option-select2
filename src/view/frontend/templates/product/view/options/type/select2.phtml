@@ -25,7 +25,7 @@ $option = $block->getData('option');
     require([
         'jquery',
         'domReady',
-        'Infrangible_CatalogProductOptionSelect2/js/select2'
+        'Infrangible_Select2/js/select2'
     ], function($, domReady) {
         domReady(function() {
             var optionSelectElement = $('#select_<?= $escaper->escapeHtmlAttr($option->getId()); ?>');
