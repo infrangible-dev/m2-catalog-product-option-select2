@@ -1,11 +1,17 @@
 {
     "name": "infrangible/m2-catalog-product-option-select2",
-    "description": "Infrangible Magento 2 Catalog Product Option Select2",
+    "description": "Adds the custom option type \"Select2\": a drop-down for product options that is rendered as a styled selection box instead of the plain browser list.",
     "type": "magento2-module",
     "version": "1.2.1",
     "license": "MIT",
     "keywords": [
-        "Magento"
+        "Magento",
+        "Magento 2",
+        "Adobe Commerce",
+        "Product options",
+        "Select2 custom options",
+        "searchable option drop-down",
+        "styled custom option select"
     ],
     "homepage": "https://github.com/infrangible-dev/m2-catalog-product-option-select2",
     "authors": [
